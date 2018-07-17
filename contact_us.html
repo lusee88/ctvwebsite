@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Critical Validation Technologies</title>
+    <link rel="stylesheet"
+      href="C:\Users\mynam\Documents\Website\css\bootstrap.css" media="screen">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png"
+    href="C:\Users\mynam\Documents\Website\CVT new photos\favicon.png" />
+
+    <!--style for map-->
+  	<style>
+  		#map{
+  			height: 400px;
+  			width: 100%;
+  		}
+  	</style>
+
+
+  </head>
+
+
+  <body>
+
+
+    <!--navbar-->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light"
+    style="background-color: rgb(119, 180, 223)">
+      <a class="navbar-brand" href="#">
+        <img src="C:\Users\mynam\Documents\Website\CVT new photos\FinalLogo.png">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search"
+          aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container" style="padding-top:100px;">
+      <h2 style="text-align:center">Contact Us</h2>
+    </div>
+
+    <!--input boxes and map-->
+
+  	<div class="container" style="padding-bottom: 30px;">
+  		<div class="row" style="padding-top: 50px;">
+  			<!-- input boxes-->
+  			<div class="col mb-2">
+  			  <form>
+  					<label for="fullName">Full Name</label>
+  					<input type="text" class="form-control"
+  					id="fullName" placeholder="John Smith" required>
+
+
+  					<label for="phoneNumber">Phone Number</label>
+  					<input type="number" class="form-control"
+  					id="phoneNumber" placeholder="(   )-    ">
+
+    				<label for="email">Email address</label>
+    				<input type="email" class="form-control"
+    				id="email" placeholder="name@example.com">
+
+  				<div class="form-group-lg">
+  				  <label for="message">Message</label>
+  				  <textarea class="form-control" id="message" rows="5"></textarea>
+  				</div>
+  				<div class="container-fluid" style="padding-top:20px;">
+  					<button class="btn btn-secondary" type="submit">Submit form</button>
+  				</div>
+  			  </form>
+  			 </div>
+
+
+  			 <!--map-->
+         <div class="col mb-2" style="padding:30px;">
+           <div id="map"></div>
+
+    				<script>
+    			// Initialize and add the map
+    			function initMap() {
+    			  var Toronto = {lat: 43.6532, lng: -79.3832};
+    			  // The map centered
+    			  var map = new google.maps.Map(
+    				  document.getElementById('map'), {zoom: 3, center: Toronto});
+    			  // The marker
+    			  var marker = new google.maps.Marker({position: Toronto, map: map});
+    			}
+    				</script>
+    				<script async defer
+    				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeiIKx5JIBV0rn9a15nxCQJ_9Iys40Xf0&callback=initMap">
+            </script>
+          </div>
+  		</div>
+    </div>
+
+
+
+    <!--footer-->
+    <footer class="page-footer center-on-small-only pt-0"
+    style="background-color:rgb(18, 32, 106)">
+
+      <div style="background-color:rgb(19, 185, 237)">
+        <div class="container">
+          <!--grid row-->
+          <div class="row py-4 d-flex align-items-center">
+            <!--grid col-->
+            <div class="col-md-5 col-lg-4 text-center text-md-left mb-4 mb-md-0">
+              <h6 class="mb-0" style="color:white">Get connected with us through</h6>
+            </div>
+
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+              <!-- insert fb, linkedin  blah icons below-->
+              <a href="#" style="padding:10px;"><i class="fab fa-facebook-square fa-2x"></i></a>
+              <a href="#" style="padding:10px;"><i class="fab fa-twitter fa-2x"></i></a>
+              <a href="#" style="padding:10px;"><i class="fab fa-linkedin fa-2x"></i></a>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container at-5 mb-4 text-center text-md-left">
+        <div class="row at-3">
+
+          <!--first col-->
+          <div class="col-md-3 col-lg-4 col-xl-3 mb-r">
+            <h6 class="title" style="color:rgb(210, 237, 251);">
+              <strong>Contact Details</strong></h6>
+            <br class="accent-2 mb-4 mt-0 d-inline-block mx-auto"
+            style="width: 60px;">
+            <p style="color:rgb(210, 237, 251)">Canadian Number: (416) 623-7393</p>
+            <p style="color:rgb(210, 237, 251)">USA Number: (215) 989-4766</p>
+            <p style="color:rgb(210, 237, 251)">Fax: (647) 476-6401</p>
+            <p style="color:rgb(210, 237, 251)">Email:
+              <a href="mailto:services@calibrationvalidation.com">
+              services@calibrationvalidation.com</a></p>
+            <p style="color:rgb(210, 237, 251)">Address</p>
+          </div>
+
+          <!--second col-->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-r">
+            <h6 class="title font-bold" style="color:rgb(210, 237, 251)">
+              <strong>Overview</strong></h6>
+            <br class="accent-2 mb-4 mt-0 d-inline-block mx-auto"
+            style="width: 60px;">
+            <p><a href="#" style="color:rgb(210, 237, 251)">Home</a></p>
+            <p><a href="#" style="color:rgb(210, 237, 251)">About Us</a></p>
+            <p><a href="#" style="color:rgb(210, 237, 251)">Services</a></p>
+            <p><a href="#" style="color:rgb(210, 237, 251)">News</a></p>
+            <p><a href="#" style="color:rgb(210, 237, 251)">Testimonials</a></p>
+          </div>
+
+          <!--third col-->
+          <div class="col-md-3 col-lg-4 col-xl-4 mb-r">
+            <h6 class="title font-bold" style="color:rgb(210, 237, 251);">
+              <strong>Contact Details</strong></h6>
+            <br class="accent-2 mb-4 mt-0 d-inline-block mx-auto"
+            style="width: 60px;">
+            <p style="color:rgb(210, 237, 251)">Canadian Number: (416) 623-7393</p>
+            <p style="color:rgb(210, 237, 251)">USA Number: (215) 989-4766</p>
+            <p style="color:rgb(210, 237, 251)">Fax: (647) 476-6401</p>
+            <p style="color:rgb(210, 237, 251)">Email:
+              <a href="mailto:services@calibrationvalidation.com">
+              services@calibrationvalidation.com</a></p>
+            <p style="color:rgb(210, 237, 251)">Address</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="footer-copyright" style="text-align:center;">
+        <div class="container-fluid" style="color:rgb(128, 126, 128);
+        padding:20px;">
+          Copyright &copy; 2018 Critical Validation Technologies (CVT) Inc.
+          All Rights Reserved</div>
+      </div>
+    </footer>
+
+        <!--scripts-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  </body>
+
+</html>
