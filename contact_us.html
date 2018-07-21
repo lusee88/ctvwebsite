@@ -11,15 +11,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
     integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
     crossorigin="anonymous">
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+     crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+     integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+     crossorigin=""></script>
     <link rel="shortcut icon" type="image/png"
     href="C:\Users\mynam\Documents\Website\CVT new photos\favicon.png" />
 
     <!--style for map-->
   	<style>
-  		#map{
-  			height: 400px;
-  			width: 100%;
-  		}
+  		#mapid {
+        height: 180px;
+      }
   	</style>
 
 
@@ -31,7 +36,7 @@
 
     <!--navbar-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light"
-    style="background-color: rgb(119, 180, 223)">
+    style="background-color: rgb(119, 180, 223);">
       <a class="navbar-brand" href="#">
         <img src="C:\Users\mynam\Documents\Website\CVT new photos\FinalLogo.png">
       </a>
@@ -43,7 +48,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto" style="color:rgb(233, 240, 238);">
           <li class="nav-item">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
@@ -69,83 +74,94 @@
       </div>
     </nav>
 
-    <div class="container" style="padding-top:100px;">
-      <h2 style="text-align:center">Contact Us</h2>
-    </div>
+    <div class="outer">
+      <div class="inner">
+        <div class="container" style="padding-top:100px; text-align:center;">
+          <h2 style="text-align:center; padding-top: 30px;">Contact Us</h2>
+          <p>For any other questions you may have or for a quote,
+            be sure to contact us!<br/>
+            Please free to call us, email us, or shoot us a message through the form below.<br/>
+            We are always happy to hear from you.</p>
+        </div>
 
-    <!--input boxes and map-->
+        <!--input boxes and map-->
 
-  	<div class="container" style="padding-bottom: 30px;">
-  		<div class="row" style="padding-top: 50px;">
-  			<!-- input boxes-->
-  			<div class="col mb-2">
-  			  <form>
-  					<label for="fullName">Full Name</label>
-  					<input type="text" class="form-control"
-  					id="fullName" placeholder="John Smith" required>
-
-
-  					<label for="phoneNumber">Phone Number</label>
-  					<input type="number" class="form-control"
-  					id="phoneNumber" placeholder="(   )-    ">
-
-    				<label for="email">Email address</label>
-    				<input type="email" class="form-control"
-    				id="email" placeholder="name@example.com">
-
-  				<div class="form-group-lg">
-  				  <label for="message">Message</label>
-  				  <textarea class="form-control" id="message" rows="5"></textarea>
-  				</div>
-  				<div class="container-fluid" style="padding-top:20px;">
-  					<button class="btn btn-secondary" type="submit">Submit form</button>
-  				</div>
-  			  </form>
-  			 </div>
+      	<div class="container" style="padding-bottom: 30px;">
+      		<div class="row" style="padding-top: 10px;">
+      			<!-- input boxes-->
+      			<div class="col mb-2">
+      			  <form>
+      					<label for="fullName">Full Name</label>
+      					<input type="text" class="form-control"
+      					id="fullName" placeholder="John Smith" required>
 
 
-  			 <!--map-->
-         <div class="col mb-2" style="padding:30px;">
-           <div id="map"></div>
+      					<label for="phoneNumber">Phone Number</label>
+      					<input type="number" class="form-control"
+      					id="phoneNumber" placeholder="(   )-    ">
 
-    				<script>
-    			// Initialize and add the map
-    			function initMap() {
-    			  var Toronto = {lat: 43.6532, lng: -79.3832};
-    			  // The map centered
-    			  var map = new google.maps.Map(
-    				  document.getElementById('map'), {zoom: 3, center: Toronto});
-    			  // The marker
-    			  var marker = new google.maps.Marker({position: Toronto, map: map});
-    			}
-    				</script>
-    				<script async defer
-    				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeiIKx5JIBV0rn9a15nxCQJ_9Iys40Xf0&callback=initMap">
-            </script>
+        				<label for="email">Email address</label>
+        				<input type="email" class="form-control"
+        				id="email" placeholder="name@example.com">
+
+      				<div class="form-group-lg">
+      				  <label for="message">Message</label>
+      				  <textarea class="form-control" id="message" rows="5"></textarea>
+      				</div>
+      				<div class="container-fluid" style="padding-top:20px;">
+      					<button class="btn btn-secondary" type="submit">Submit form</button>
+      				</div>
+      			  </form>
+      			 </div>
+
+
+      			 <!--map-->
+             <div class="col mb-2" style="padding:30px;">
+               <div id="mapid" style="height: 380px;"></div>
+
+               <script>
+
+                  var mymap = L.map('mapid').setView([43.6532, -79.3832], 13);
+
+                  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                      maxZoom: 18,
+                      id: 'mapbox.streets',
+                      accessToken: 'pk.eyJ1IjoibHVjeXl1ODgiLCJhIjoiY2pqcnl0c2dtMDMyMTNwbXJtNjlsbW5ubiJ9.hRhssp2I5Xbr_ftOXAHu4Q'
+                  }).addTo(mymap);
+
+                  var marker = L.marker([43.6532, -79.3832]).addTo(mymap);
+               </script>
+            </div>
           </div>
-  		</div>
+        </div>
+      </div>
     </div>
+
 
 
 
     <!--footer-->
     <footer class="page-footer center-on-small-only pt-0"
-    style="background-color:rgb(18, 32, 106)">
+    style="background-color:rgb(1, 8, 46)">
 
-      <div style="background-color:rgb(19, 185, 237)">
+      <div style="background-color:rgb(80, 150, 203)">
         <div class="container">
           <!--grid row-->
           <div class="row py-4 d-flex align-items-center">
             <!--grid col-->
             <div class="col-md-5 col-lg-4 text-center text-md-left mb-4 mb-md-0">
-              <h6 class="mb-0" style="color:white">Get connected with us through</h6>
+              <h6 class="mb-0" style="color:rgb(233, 240, 238)">Get connected with us through</h6>
             </div>
 
             <div class="col-md-6 col-lg-7 text-center text-md-right">
               <!-- insert fb, linkedin  blah icons below-->
-              <a href="#" style="padding:10px;"><i class="fab fa-facebook-square fa-2x"></i></a>
-              <a href="#" style="padding:10px;"><i class="fab fa-twitter fa-2x"></i></a>
-              <a href="#" style="padding:10px;"><i class="fab fa-linkedin fa-2x"></i></a>
+              <a href="#" style="padding:10px; color:rgb(233, 240, 238)">
+                <i class="fab fa-facebook-square fa-2x"></i></a>
+              <a href="#" style="padding:10px; color:rgb(233, 240, 238)">
+                <i class="fab fa-twitter fa-2x"></i></a>
+              <a href="#" style="padding:10px; color:rgb(233, 240, 238)">
+                <i class="fab fa-linkedin fa-2x"></i></a>
 
             </div>
 
